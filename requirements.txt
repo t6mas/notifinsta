@@ -1,2 +1,2 @@
-instaloader
+instaloader>=4.13.1
 requests
