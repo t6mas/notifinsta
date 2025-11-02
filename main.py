@@ -11,7 +11,8 @@ L.load_session_from_file("agusssssteetxrno", SESSION_FILE)  # ⚠️ poné tu us
 
 def get_story_ids():
     ids = []
-    for story in L.get_stories(userids=[L.check_profile_id(USUARIO)]):
+    profile = instaloader.Profile.from_username(L.context, USUARIO)
+    for story in L.get_stories(userids=[profile.userid]):
         for item in story.get_items():
             ids.append(item.mediaid)
     return ids
@@ -28,6 +29,7 @@ while True:
         requests.post(WEBHOOK_URL, json={"content": msg})
         historias_previas = actuales
         print(msg)
+
 
 
 
