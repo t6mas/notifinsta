@@ -1,10 +1,13 @@
-import instaloader, time, requests
+import instaloader, time, requests, os
 
 # Configuración
-USUARIO = "typemkeell"  # 👈 reemplazá con el usuario que querés seguir
+USUARIO = "typemkeell"  # 👈 usuario a monitorear
 WEBHOOK_URL = "https://discord.com/api/webhooks/1434371712673124443/_l7xzlrLHxe3zx5Lg6BvcQgY57mCQbW-LPBpuy_n3WHx_6HnkpXDApZ88rFJcS_qX-PT"  # 👈 tu webhook de Discord
+SESSION_FILE = "session-instagram"  # 👈 reemplazá con el nombre exacto de tu archivo de sesión
 
+# Inicializar Instaloader
 L = instaloader.Instaloader()
+L.load_session_from_file("solomuero.jpg", SESSION_FILE)  # ⚠️ poné tu usuario real aquí
 
 def get_story_ids():
     ids = []
@@ -13,7 +16,7 @@ def get_story_ids():
             ids.append(item.mediaid)
     return ids
 
-print(f"👀 Monitoreando historias de @{USUARIO}")
+print(f"👀 Monitoreando historias de @{USUARIO}...")
 historias_previas = set(get_story_ids())
 
 while True:
