@@ -3,11 +3,11 @@ import instaloader, time, requests, os
 # Configuración
 USUARIO = "typemkeell"  # 👈 usuario a monitorear
 WEBHOOK_URL = "https://discord.com/api/webhooks/1434371712673124443/_l7xzlrLHxe3zx5Lg6BvcQgY57mCQbW-LPBpuy_n3WHx_6HnkpXDApZ88rFJcS_qX-PT"  # 👈 tu webhook de Discord
-SESSION_FILE = "session-solomuero.jpg"  # 👈 reemplazá con el nombre exacto de tu archivo de sesión
+SESSION_FILE = "session-agusssssteetxrno"  # 👈 reemplazá con el nombre exacto de tu archivo de sesión
 
 # Inicializar Instaloader
 L = instaloader.Instaloader()
-L.load_session_from_file("solomuero.jpg", SESSION_FILE)  # ⚠️ poné tu usuario real aquí
+L.load_session_from_file("agusssssteetxrno", SESSION_FILE)  # ⚠️ poné tu usuario real aquí
 
 def get_story_ids():
     ids = []
@@ -28,4 +28,5 @@ while True:
         requests.post(WEBHOOK_URL, json={"content": msg})
         historias_previas = actuales
         print(msg)
+
 
